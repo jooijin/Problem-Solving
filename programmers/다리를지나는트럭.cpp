@@ -5,48 +5,27 @@
 using namespace std;
 
 int solution(int bridge_length, int weight, vector<int> truck_weights) {
-    int answer = 1;
-    int size = truck_weights.size();
-    int tot=truck_weights[0];
+    int answer = 0;
+    // 다리 위의 트럭들을 표현할 큐 q 선언
     queue<int> q;
-    q.push(truck_weights[0]);
-    int temp;
-     
-    for (int i=1; i<size; i++)
-    {
-        if(q.size()<bridge_length)
-        {
-            if(tot+truck_weights[i]<=weight)
-            {
-                tot += truck_weights[i];
-                q.push(truck_weights[i]);
-                answer++;
+    // 다리 위 트럭들의 총 무게
+    int tot = 0;
+    
+    for(int i=0; i<truck_weights.size(); i++) {
+        if(q.size() == bridge_length) {
+                int temp = q.front();
+                tot -= temp;
+                q.pop();
             }
-            else
-            {
-                q.push(0);
-                i--;
-                answer++;
-            }
+        if(tot+truck_weights[i] <= weight) {
+            q.push(truck_weights[i]);
+            tot += truck_weights[i];
         }
-        
-        else
-        {
-            tot -= q.front();
-            q.pop();
-            if (tot+truck_weights[i]<=weight)
-            {
-                tot += truck_weights[i];
-                q.push(truck_weights[i]);
-                answer++;
-            }
-            else
-            {
-                q.push(0);
-                i--;
-                answer++;
-            }
+        else {
+            q.push(0);
+            i--;
         }
+        answer++;
     }
     
     answer += bridge_length;
