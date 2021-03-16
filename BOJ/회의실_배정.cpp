@@ -1,3 +1,5 @@
+// 1931
+
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -9,7 +11,10 @@ bool compare(pair<int,int> a, pair<int,int> b) {
 	if(a.second<b.second) {
 		return true;
 	}
-	
+	else if(a.second == b.second) {
+		if(a.first<b.first)
+			return true;
+	}
 	return false;
 }
 
