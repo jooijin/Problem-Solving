@@ -1,4 +1,4 @@
-// Fly me to Alpha Centauri
+// 1011
 // 사실 코딩문제라기보다는 수학문제같다
 
 #include <iostream>
