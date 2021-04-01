@@ -22,7 +22,7 @@ int solution(string s) {
                     j+i;
                 }
             }
-            temp = temp-i*cnt+i+cnt/10+1;
+            temp = temp-i*cnt+i+cnt/10+1; // 압축한 다음 앞에 붙는 숫자가 두자리일수도 있으니,,
         }
         answer = min(answer, temp);
     }
