@@ -33,6 +33,6 @@ int solution(int cacheSize, vector<string> cities) {
             answer += 1;
         }
     }
-    
+   
     return answer;
 }
