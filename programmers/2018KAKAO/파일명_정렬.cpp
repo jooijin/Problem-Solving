@@ -1,4 +1,6 @@
 // TC 6,7,8,9 
+// 공백, -문자 처리가 잘못된거같다
+// head로 먼저 정렬해놓고 그 다음에 number로 정렬하는 방식을 사용해야겠다
 
 #include <string>
 #include <vector>
