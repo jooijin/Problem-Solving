@@ -41,6 +41,7 @@ def solution(bridge_length, weight, truck_weights):
         if tot+truck <= weight:
             tot -= q.popleft()
             q.append(truck)
+            tot += truck
             answer += 1
         else:
             while tot+truck > weight:
