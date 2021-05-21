@@ -1,3 +1,5 @@
+# 왜 deque보다 queue로 푸는것이 더 빠른지 모르겠다
+
 """
 문제 설명
 트럭 여러 대가 강을 가로지르는 일 차선 다리를 정해진 순으로 건너려 합니다. 
@@ -29,26 +31,27 @@ truck_weights의 길이는 1 이상 10,000 이하입니다.
 """
 
 def solution(bridge_length, weight, truck_weights):
-    from collections import deque
-    q = deque()
+    from queue import Queue
+    q = Queue()
     answer = 0
     tot = 0
     
     for i in range(bridge_length):
-        q.append(0)
+        q.put(0)
     
     for truck in truck_weights:
         if tot+truck <= weight:
-            tot -= q.popleft()
-            q.append(truck)
+            tot -= q.get()
+            q.put(truck)
             tot += truck
             answer += 1
         else:
             while tot+truck > weight:
-                tot -= q.popleft()
-                q.append(0)
+                tot -= q.get()
+                if tot+truck > weight:
+                    q.put(0)
                 answer += 1
-            q[0] = truck
+            q.put(truck)
             tot += truck
     
     answer += bridge_length
