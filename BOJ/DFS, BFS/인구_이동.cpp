@@ -103,7 +103,7 @@ int main(){
 	    for(int x=0; x<N; x++){
 	    	for(int y=0; y<N; y++){
 	    		if(!v[x][y])
-					bfs(x, y);
+				bfs(x, y);
 			}
 		}
 		if(!mv) break;
