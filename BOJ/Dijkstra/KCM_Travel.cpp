@@ -116,11 +116,11 @@ int main(){
     int T;
     cin>>T;
     while(T>0){
-    	init();
-		dijkstra();
-		solve();
-		T--;	
-	}
+	init();
+	dijkstra();
+	solve();
+	T--;	
+    }
 	
     return 0;
 }
